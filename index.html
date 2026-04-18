@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[YOUR NAME] — Quant Trading</title>
+  <meta name="description" content="Quant trading education, 1-on-1 consultation and premium crypto trading course." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --fire-hot:  #FF3D00;
+      --fire-mid:  #FF7300;
+      --fire-warm: #FFAA00;
+      --coal:   #060606;
+      --ash:    #111111;
+      --ember:  #181818;
+      --text:   #E8E8E8;
+      --muted:  #808080;
+      --border: rgba(255, 115, 0, 0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--coal);
+      color: var(--text);
+      font-family: 'Space Mono', 'Courier New', monospace;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(6, 6, 6, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+
+    .nav-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.14em;
+      color: var(--fire-mid);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--fire-warm); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 80%, rgba(255,115,0,0.065) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(255,61,0,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fire-mid);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 13vw, 148px);
+      letter-spacing: 0.04em;
+      line-height: 0.9;
+      margin-bottom: 0.4rem;
+      position: relative;
+    }
+
+    .hero-name .fire-text {
+      display: block;
+      background: linear-gradient(100deg, var(--fire-hot) 0%, var(--fire-mid) 45%, var(--fire-warm) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: flicker 5s ease-in-out infinite;
+    }
+
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      46%      { opacity: 1; }
+      50%      { opacity: 0.86; }
+      54%      { opacity: 1; }
+      78%      { opacity: 1; }
+      81%      { opacity: 0.93; }
+      84%      { opacity: 1; }
+    }
+
+    .hero-rule {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--fire-hot), var(--fire-warm));
+      margin: 1.5rem auto;
+      opacity: 0.7;
+    }
+
+    .hero-sub {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      max-width: 420px;
+      margin: 0 auto 2.75rem;
+      line-height: 2;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-fire {
+      display: inline-block;
+      padding: 0.9rem 2.25rem;
+      background: var(--fire-hot);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-fire:hover {
+      background: var(--fire-mid);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.9rem 2.25rem;
+      background: transparent;
+      color: var(--fire-mid);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,115,0,0.5);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,115,0,0.08);
+      border-color: var(--fire-mid);
+      transform: translateY(-2px);
+    }
+
+    /* ── EMBER DIVIDER ── */
+    .ember-line {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--fire-hot) 20%,
+        var(--fire-warm) 50%,
+        var(--fire-mid) 80%,
+        transparent 100%);
+      opacity: 0.25;
+    }
+
+    /* ── SECTIONS ── */
+    .section-wrap {
+      padding: 6rem 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fire-mid);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 8vw, 82px);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+      max-width: 520px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--ash);
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.1em;
+      color: var(--fire-warm);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-body {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .price-row {
+      margin: 1.5rem 0 0.25rem;
+    }
+
+    .price-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: var(--fire-hot);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .price-unit {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FEATURE LIST ── */
+    .feature-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .feature-list li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,115,0,0.07);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list li::before {
+      content: '▸';
+      color: var(--fire-mid);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── NOTICE BOX ── */
+    .notice {
+      border-left: 3px solid var(--fire-hot);
+      padding: 1rem 1.25rem;
+      background: rgba(255, 61, 0, 0.05);
+      margin-top: 1.75rem;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      line-height: 1.85;
+    }
+
+    .notice strong {
+      color: var(--fire-hot);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 10px;
+    }
+
+    .notice a {
+      color: var(--fire-mid);
+      text-decoration: none;
+    }
+
+    /* ── CRYPTO WALLETS ── */
+    .wallet-section {
+      margin-top: 2rem;
+    }
+
+    .wallet-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .wallet-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fire-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .wallet-addr {
+      background: var(--ember);
+      border: 1px solid rgba(255,115,0,0.15);
+      padding: 0.75rem 1rem;
+      font-size: 11px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      word-break: break-all;
+      font-family: 'Space Mono', monospace;
+      cursor: text;
+      user-select: all;
+      -webkit-user-select: all;
+    }
+
+    .wallet-addr:hover {
+      border-color: rgba(255,115,0,0.35);
+    }
+
+    /* ── BOOK BUTTON WRAPPER ── */
+    .book-wrap {
+      margin-top: 2.25rem;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.07em;
+      line-height: 2;
+    }
+
+    footer a {
+      color: var(--fire-mid);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--fire-warm); }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      color: var(--fire-hot);
+      display: block;
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .footer-copy {
+      margin-top: 1rem;
+      font-size: 10px;
+      opacity: 0.35;
+      letter-spacing: 0.12em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.5rem; }
+      .section-wrap { padding: 4rem 1.25rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-fire, .btn-outline { width: 220px; text-align: center; }
+      .card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <a href="#hero" class="nav-brand">[YOUR BRAND]</a>
+  <ul class="nav-links">
+    <li><a href="#course">Course</a></li>
+    <li><a href="#consult">Consult</a></li>
+    <li><a href="https://x.com/YOURHANDLE" target="_blank" rel="noopener noreferrer">X ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <p class="hero-tag">Quantitative Trading &nbsp;·&nbsp; Crypto Markets</p>
+
+  <h1 class="hero-name">
+    <span class="fire-text">[YOUR NAME]</span>
+  </h1>
+
+  <div class="hero-rule"></div>
+
+  <p class="hero-sub">
+    Independent quant trader. I build and run systematic strategies
+    for crypto markets — and I teach them to serious people only.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#course" class="btn-fire">Get the Course</a>
+    <a href="#consult" class="btn-outline">Book a Call</a>
+  </div>
+</section>
+
+<div class="ember-line"></div>
+
+<!-- ═══════════════ COURSE ═══════════════ -->
+<div class="section-wrap" id="course">
+  <p class="section-label">01 — The Course</p>
+  <h2 class="section-title">THE PLAYBOOK</h2>
+  <p class="section-body">
+    Everything I know about systematic crypto trading condensed into one course.
+    No filler. No hype. Pure methodology built from years of live market exposure.
+  </p>
+
+  <div class="card">
+    <div class="card-title">CRYPTO QUANT MASTERCLASS</div>
+    <p class="card-body">
+      A single, complete course covering quantitative strategy design, backtesting,
+      risk management, and execution specific to crypto markets.
+      Designed for traders who are done guessing.
+    </p>
+
+    <div class="price-row">
+      <div class="price-tag">[PRICE]</div>
+      <div class="price-unit">USDT · USDC · BTC · ETH &nbsp;—&nbsp; Crypto only &nbsp;·&nbsp; One-time payment</div>
+    </div>
+
+    <ul class="feature-list">
+      <li>Full strategy development framework built from scratch</li>
+      <li>Backtesting methodology for crypto using real historical data</li>
+      <li>Risk management systems that actually protect capital</li>
+      <li>Live trading execution, sizing, and portfolio construction</li>
+      <li>Lifetime access — no subscription, no expiry, no upsells</li>
+    </ul>
+
+    <div class="notice">
+      <strong>Non-Refundable Policy —</strong> All course sales are final.
+      This is a digital product and is non-refundable under any circumstances.
+      By sending payment you acknowledge and accept this policy in full.
+      Payment constitutes acceptance of terms.
+    </div>
+
+    <!-- CRYPTO WALLETS -->
+    <div class="wallet-section">
+      <div class="wallet-item">
+        <div class="wallet-label">USDT / USDC — TRC-20 (Tron Network)</div>
+        <div class="wallet-addr">[YOUR_TRC20_WALLET_ADDRESS]</div>
+      </div>
+      <div class="wallet-item">
+        <div class="wallet-label">USDT / USDC — ERC-20 (Ethereum Network)</div>
+        <div class="wallet-addr">[YOUR_ERC20_WALLET_ADDRESS]</div>
+      </div>
+      <div class="wallet-item">
+        <div class="wallet-label">Bitcoin (BTC)</div>
+        <div class="wallet-addr">[YOUR_BTC_WALLET_ADDRESS]</div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>After Payment —</strong>
+      DM me on <a href="https://x.com/YOURHANDLE" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      with your transaction hash to receive course access.
+      Include: TX hash · Amount · Network used.
+      Access is granted within 24 hours on business days.
+    </div>
+  </div>
+</div>
+
+<div class="ember-line"></div>
+
+<!-- ═══════════════ CONSULTATION ═══════════════ -->
+<div class="section-wrap" id="consult">
+  <p class="section-label">02 — One on One</p>
+  <h2 class="section-title">PRIVATE SESSION</h2>
+  <p class="section-body">
+    A focused 60-minute session built around your specific situation.
+    Portfolio review, strategy audit, or building something from zero.
+    Limited slots — I work with a small number of people at any time.
+  </p>
+
+  <div class="card">
+    <div class="card-title">60-MIN CONSULTATION</div>
+    <p class="card-body">
+      We work on exactly what you need. Before the call I'll send you a short
+      pre-session form so we don't waste a single minute.
+    </p>
+
+    <div class="price-row">
+      <div class="price-tag">[PRICE]</div>
+      <div class="price-unit">USDT · USDC · BTC · ETH &nbsp;—&nbsp; Crypto only &nbsp;·&nbsp; Per session</div>
+    </div>
+
+    <ul class="feature-list">
+      <li>60 full minutes of focused, direct one-on-one guidance</li>
+      <li>Pre-call questionnaire to maximize every minute</li>
+      <li>Written summary and action items delivered after the call</li>
+      <li>No upsells. No pitch. No filler.</li>
+    </ul>
+
+    <div class="notice">
+      <strong>Non-Refundable Policy —</strong> Consultation fees are non-refundable.
+      Rescheduling is permitted with a minimum of 24 hours' notice.
+      No-shows forfeit their slot entirely without exception.
+      Payment confirms your slot and constitutes acceptance of these terms.
+    </div>
+
+    <div class="book-wrap">
+      <a href="[YOUR_CALENDLY_OR_BOOKING_LINK]" target="_blank" rel="noopener noreferrer" class="btn-fire">
+        Book Your Slot &nbsp;→
+      </a>
+    </div>
+
+    <div class="notice" style="margin-top: 1.5rem; text-align: center;">
+      <strong>How It Works —</strong>
+      Book a slot above. I'll confirm via DM on
+      <a href="https://x.com/YOURHANDLE" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      and send the crypto payment address.
+      Your slot is reserved only after payment is confirmed.
+    </div>
+  </div>
+</div>
+
+<div class="ember-line"></div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <span class="footer-brand">[YOUR BRAND]</span>
+
+  <p>
+    <a href="https://x.com/YOURHANDLE" target="_blank" rel="noopener noreferrer">@YOURHANDLE on X / Twitter</a>
+  </p>
+
+  <p style="margin-top: 0.5rem; max-width: 480px; margin-left: auto; margin-right: auto;">
+    Nothing on this site constitutes financial advice.
+    Trading crypto involves substantial risk of loss.
+    All content is for educational purposes only.
+  </p>
+
+  <p class="footer-copy">
+    © [YEAR] [YOUR NAME] &nbsp;·&nbsp; NO COOKIES &nbsp;·&nbsp; NO TRACKERS &nbsp;·&nbsp; PURE HTML
+  </p>
+</footer>
+
+</body>
+</html>
