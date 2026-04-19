@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Secret Quant — Crypto Intelligence</title>
+<meta name="description" content="Anonymous quantitative crypto trader. Numerology. Remote viewing. Elite intelligence. 1-on-1 consultation. Secret Codes course. Secret Quant merch."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════
+   RESET + VARS
+════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --hot:#FF3D00;--mid:#FF7300;--warm:#FFAA00;
+  --coal:#050505;--ash:#0d0d0d;--ember:#131313;--cinder:#1a1a1a;
+  --text:#EBEBEB;--muted:rgba(235,235,235,0.44);--dim:rgba(235,235,235,0.2);
+  --border:rgba(255,115,0,0.13);--border-h:rgba(255,61,0,0.32);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--coal);color:var(--text);
+  font-family:'Share Tech Mono','Courier New',monospace;
+  font-size:14px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+
+/* ════════════════════════════════════════
+   OVERLAYS
+════════════════════════════════════════ */
+#fc{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+#grid{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  background-image:
+    linear-gradient(rgba(255,115,0,0.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,115,0,0.032) 1px,transparent 1px);
+  background-size:64px 64px;
+  animation:gpulse 11s ease-in-out infinite;
+}
+@keyframes gpulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+#vig{
+  position:fixed;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(ellipse 92% 88% at 50% 50%,transparent 28%,rgba(5,5,5,.92) 100%);
+}
+#scan{
+  position:fixed;left:0;right:0;height:1px;pointer-events:none;z-index:3;
+  background:linear-gradient(90deg,transparent,rgba(255,115,0,.13) 50%,transparent);
+  animation:scanmove 10s linear infinite;
+}
+@keyframes scanmove{0%{top:-1px;}100%{top:100vh;}}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;height:62px;z-index:100;
+  background:rgba(5,5,5,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 3rem;
+}
+.nb{
+  font-family:'Bebas Neue',sans-serif;font-size:21px;
+  letter-spacing:.18em;color:var(--mid);text-decoration:none;
+  transition:color .2s;
+}
+.nb:hover{color:var(--warm);}
+.nl{display:flex;gap:2.4rem;list-style:none;align-items:center;}
+.nl a{
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s;
+}
+.nl a:hover{color:var(--warm);}
+.ncta{
+  display:inline-flex;align-items:center;
+  padding:.58rem 1.7rem;background:var(--hot);color:#fff;
+  font-family:'Share Tech Mono',monospace;font-size:9px;
+  letter-spacing:.24em;text-transform:uppercase;text-decoration:none;
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:background .2s,box-shadow .2s;
+}
+.ncta::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transform:translateX(-100%);transition:transform .4s;
+}
+.ncta:hover::before{transform:translateX(100%);}
+.ncta:hover{background:var(--mid);box-shadow:0 4px 20px rgba(255,61,0,.3);}
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero{
+  position:relative;min-height:100vh;z-index:10;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 2rem 6rem;
+}
+.h-eye{
+  font-size:9px;letter-spacing:.36em;text-transform:uppercase;
+  color:rgba(255,115,0,.48);margin-bottom:1.8rem;
+  animation:rise 1.2s ease both;
+}
+.h-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(78px,19vw,215px);
+  line-height:.86;letter-spacing:.025em;
+  animation:rise 1.3s ease .1s both;
+}
+.ft{
+  display:block;
+  background:linear-gradient(108deg,var(--hot) 0%,var(--mid) 36%,var(--warm) 70%,var(--mid) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:fshift 4.5s ease-in-out infinite alternate,flicker 9s ease-in-out infinite;
+}
+.gt{
+  display:block;
+  -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:1px rgba(255,115,0,.2);
+}
+@keyframes fshift{0%{background-position:0%;}100%{background-position:100%;}}
+@keyframes flicker{
+  0%,100%{opacity:1;}44%{opacity:1;}48%{opacity:.78;}52%{opacity:1;}
+  72%{opacity:1;}75%{opacity:.88;}78%{opacity:1;}
+}
+.h-rule{
+  width:clamp(90px,22vw,260px);height:1px;margin:1.8rem auto;
+  background:linear-gradient(90deg,transparent,var(--hot),var(--warm),var(--hot),transparent);
+  background-size:200% 100%;
+  animation:rflow 3s linear infinite,rise 1.3s ease .3s both;
+}
+@keyframes rflow{0%{background-position:0%;}100%{background-position:200%;}}
+.h-sub{
+  font-size:clamp(10px,1.4vw,13px);letter-spacing:.1em;
+  color:var(--muted);max-width:460px;line-height:2.2;
+  animation:rise 1.3s ease .45s both;min-height:2.6em;
+}
+#ht{display:inline;}
+#hc{
+  display:inline-block;width:2px;height:1em;
+  background:var(--mid);vertical-align:text-bottom;
+  animation:blink .9s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.h-ctas{
+  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  margin-top:2.8rem;animation:rise 1.3s ease .6s both;
+}
+.btn-f{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:1rem 2.5rem;background:var(--hot);color:#fff;
+  font-family:'Share Tech Mono',monospace;font-size:9px;
+  letter-spacing:.26em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.btn-f::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent);
+  transform:translateX(-100%);transition:transform .42s;
+}
+.btn-f:hover::before{transform:translateX(100%);}
+.btn-f:hover{background:var(--mid);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,61,0,.28);}
+.btn-g{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:1rem 2.5rem;background:transparent;color:var(--mid);
+  font-family:'Share Tech Mono',monospace;font-size:9px;
+  letter-spacing:.26em;text-transform:uppercase;
+  text-decoration:none;border:1px solid rgba(255,115,0,.28);cursor:pointer;
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-g:hover{border-color:var(--mid);background:rgba(255,115,0,.06);transform:translateY(-2px);}
+.sh{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  font-size:8px;letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,115,0,.26);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  animation:shb 2.6s ease-in-out infinite,rise 1.5s ease 1s both;
+}
+.sh::after{
+  content:'';width:1px;height:34px;
+  background:linear-gradient(180deg,rgba(255,115,0,.38),transparent);
+}
+@keyframes shb{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(6px);}
+}
+
+/* ════════════════════════════════════════
+   SECTION COMMONS
+════════════════════════════════════════ */
+section{position:relative;z-index:10;padding:7rem 2.5rem;}
+.inner{max-width:900px;margin:0 auto;}
+.sl{
+  font-size:9px;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--mid);margin-bottom:.7rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.sl::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(255,115,0,.22),transparent);
+  max-width:180px;
+}
+.st{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(50px,9vw,96px);
+  letter-spacing:.04em;line-height:.92;
+  color:var(--text);margin-bottom:1.5rem;
+}
+.sb{font-size:12px;color:var(--muted);line-height:2.2;max-width:540px;}
+.fdiv{
+  width:100%;max-width:900px;margin:0 auto;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--hot) 25%,var(--warm) 50%,var(--mid) 75%,transparent 100%);
+  opacity:.18;position:relative;z-index:10;
+}
+
+/* ════════════════════════════════════════
+   MANIFESTO
+════════════════════════════════════════ */
+#manifesto{background:var(--ash);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;}
+.mpull{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(42px,6vw,74px);
+  line-height:1.04;letter-spacing:.04em;color:var(--text);
+}
+.mpull em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--hot),var(--warm));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.mstats{display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;}
+.mstat{border-left:2px solid var(--hot);padding-left:1.1rem;}
+.msn{
+  font-family:'Bebas Neue',sans-serif;font-size:48px;
+  letter-spacing:.06em;color:var(--warm);line-height:1;display:block;
+}
+.msl{
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(255,115,0,.4);display:block;margin-top:.2rem;
+}
+.mbody{font-size:12px;color:var(--muted);line-height:2.3;}
+.mbody p{margin-bottom:1.25rem;}
+.mbody p:last-child{margin-bottom:0;}
+
+/* ════════════════════════════════════════
+   CONSULTATION
+════════════════════════════════════════ */
+#consult{background:var(--coal);}
+.cc{
+  background:var(--ash);border:1px solid var(--border);
+  padding:3rem;margin-top:2.5rem;position:relative;overflow:hidden;
+}
+.cc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--hot),var(--warm),var(--mid));
+  background-size:200% 100%;animation:rflow 3s linear infinite;
+}
+.sbadge{
+  display:inline-flex;align-items:center;gap:.75rem;
+  background:rgba(255,61,0,.09);border:1px solid rgba(255,61,0,.28);
+  padding:.55rem 1.2rem;margin-bottom:1.8rem;
+}
+.sdot{
+  width:7px;height:7px;border-radius:50%;background:var(--hot);
+  box-shadow:0 0 8px var(--hot);flex-shrink:0;
+  animation:pdot 2s ease-in-out infinite;
+}
+@keyframes pdot{
+  0%,100%{box-shadow:0 0 6px var(--hot);}
+  50%{box-shadow:0 0 18px var(--hot),0 0 30px rgba(255,61,0,.28);}
+}
+.stxt{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--hot);}
+.pdisplay{display:flex;align-items:baseline;gap:.8rem;margin:1.2rem 0 .3rem;}
+.pnum{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,11vw,108px);
+  color:var(--warm);letter-spacing:.06em;line-height:1;
+}
+.pdet{font-size:10px;letter-spacing:.14em;color:var(--muted);line-height:1.8;}
+.cbody{font-size:12px;color:var(--muted);line-height:2.3;max-width:600px;margin:1.5rem 0 2rem;}
+.fg{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--border);margin:1.75rem 0;
+}
+.fi{
+  padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);
+  font-size:11px;color:var(--muted);
+  display:flex;gap:.9rem;align-items:flex-start;
+  transition:background .2s;
+}
+.fi:nth-child(odd){border-right:1px solid var(--border);}
+.fi:nth-last-child(-n+2){border-bottom:none;}
+.fi:hover{background:rgba(255,115,0,.03);}
+.fi::before{content:'▸';color:var(--mid);flex-shrink:0;margin-top:1px;}
+.nb2{
+  border-left:2px solid var(--hot);padding:.9rem 1.1rem;
+  background:rgba(255,61,0,.04);
+  font-size:10px;color:var(--muted);letter-spacing:.04em;line-height:2;
+}
+.nb2+.nb2{margin-top:.9rem;}
+.nb2 strong{
+  color:var(--hot);text-transform:uppercase;
+  letter-spacing:.14em;font-size:9px;
+}
+.nb2 a{color:var(--mid);text-decoration:none;}
+.nb2 em{color:var(--text);font-style:normal;}
+.bw{margin-top:2rem;}
+
+/* ════════════════════════════════════════
+   COURSE
+════════════════════════════════════════ */
+#course{background:var(--ash);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.cs-badge{
+  display:inline-flex;align-items:center;gap:.75rem;
+  background:rgba(255,170,0,.07);border:1px solid rgba(255,170,0,.22);
+  padding:.55rem 1.2rem;margin-bottom:1.75rem;
+}
+.wdot{
+  width:7px;height:7px;border-radius:50%;background:var(--warm);
+  box-shadow:0 0 8px var(--warm);flex-shrink:0;
+  animation:wdota 2.6s ease-in-out infinite;
+}
+@keyframes wdota{
+  0%,100%{box-shadow:0 0 5px var(--warm);}
+  50%{box-shadow:0 0 16px var(--warm),0 0 26px rgba(255,170,0,.25);}
+}
+.wtxt{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);}
+.clayout{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem;align-items:start;margin-top:2.5rem;}
+.mlist{list-style:none;counter-reset:mods;border:1px solid var(--border);}
+.mi{
+  counter-increment:mods;
+  padding:1.3rem 1.5rem;border-bottom:1px solid var(--border);
+  font-size:11px;color:var(--muted);
+  display:flex;gap:1.3rem;align-items:flex-start;
+  transition:background .2s;
+}
+.mi:last-child{border-bottom:none;}
+.mi:hover{background:rgba(255,115,0,.03);}
+.mi::before{
+  content:"0" counter(mods);
+  font-family:'Bebas Neue',sans-serif;font-size:30px;
+  color:rgba(255,115,0,.18);letter-spacing:.08em;flex-shrink:0;
+  line-height:1;margin-top:-2px;
+}
+.mt{
+  font-size:14px;color:var(--text);
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing:.12em;display:block;margin-bottom:.3rem;
+}
+.md{font-size:10px;color:var(--muted);line-height:1.8;}
+
+/* ════════════════════════════════════════
+   MERCH
+════════════════════════════════════════ */
+#merch{background:var(--coal);}
+.mcards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.mcard{background:var(--ash);border:1px solid var(--border);overflow:hidden;position:relative;}
+.mvis{
+  height:270px;background:var(--ember);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.mvis::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 65% at 50% 65%,rgba(255,115,0,.08),transparent 72%);
+}
+.mvis svg{width:165px;height:165px;opacity:.58;}
+.mlabel{
+  position:absolute;top:1rem;left:1rem;
+  font-size:8px;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,115,0,.42);background:rgba(5,5,5,.7);
+  padding:.3rem .7rem;
+}
+.minfo{padding:1.8rem;}
+.mname{
+  font-family:'Bebas Neue',sans-serif;font-size:32px;
+  letter-spacing:.1em;color:var(--text);margin-bottom:.4rem;
+}
+.mdesc{font-size:11px;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;}
+.macts{display:flex;gap:.75rem;flex-wrap:wrap;}
+.btn-sf{
+  display:inline-flex;align-items:center;padding:.68rem 1.5rem;
+  background:var(--hot);color:#fff;
+  font-family:'Share Tech Mono',monospace;font-size:8px;
+  letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:background .2s,transform .15s;
+}
+.btn-sf::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transform:translateX(-100%);transition:transform .38s;
+}
+.btn-sf:hover::before{transform:translateX(100%);}
+.btn-sf:hover{background:var(--mid);transform:translateY(-2px);}
+.btn-sg{
+  display:inline-flex;align-items:center;padding:.68rem 1.5rem;
+  background:transparent;color:var(--mid);
+  font-family:'Share Tech Mono',monospace;font-size:8px;
+  letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(255,115,0,.26);cursor:pointer;
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-sg:hover{border-color:var(--mid);background:rgba(255,115,0,.06);transform:translateY(-2px);}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease;}
+.rev.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}
+.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer{
+  background:var(--ash);border-top:1px solid var(--border);
+  padding:4.5rem 2.5rem 3rem;position:relative;z-index:10;
+}
+.fi2{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.fb .nb{font-size:26px;display:block;margin-bottom:.85rem;font-family:'Bebas Neue',sans-serif;color:var(--mid);text-decoration:none;}
+.ftag{font-size:10px;color:var(--muted);letter-spacing:.1em;line-height:2;max-width:280px;}
+.flinks h4{
+  font-size:9px;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,115,0,.4);margin-bottom:1rem;
+}
+.flinks ul{list-style:none;}
+.flinks li{margin-bottom:.55rem;}
+.flinks a{
+  font-size:11px;color:var(--muted);text-decoration:none;
+  transition:color .2s;letter-spacing:.05em;
+}
+.flinks a:hover{color:var(--mid);}
+.fbot{
+  max-width:900px;margin:3rem auto 0;
+  padding-top:2.2rem;border-top:1px solid rgba(255,115,0,.07);
+}
+.disc{
+  font-size:10px;color:rgba(235,235,235,.2);
+  line-height:2.1;letter-spacing:.04em;
+}
+.disc strong{
+  color:rgba(255,115,0,.45);letter-spacing:.1em;
+  text-transform:uppercase;font-size:9px;
+}
+.fcopy{
+  margin-top:1.5rem;display:flex;
+  justify-content:space-between;align-items:center;
+  font-size:9px;color:rgba(235,235,235,.16);letter-spacing:.1em;
+}
+
+/* ════════════════════════════════════════
+   GLOBAL ANIMATIONS
+════════════════════════════════════════ */
+@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:780px){
+  #nav{padding:0 1.25rem;}
+  .nl{display:none;}
+  .mg{grid-template-columns:1fr;}
+  .clayout{grid-template-columns:1fr;}
+  .mcards{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr;}
+  .fi:nth-child(odd){border-right:none;}
+  .fi:nth-last-child(-n+2){border-bottom:1px solid var(--border);}
+  .fi:last-child{border-bottom:none;}
+  .fi2{grid-template-columns:1fr;}
+  .fcopy{flex-direction:column;gap:.5rem;text-align:center;}
+  section{padding:5rem 1.25rem;}
+}
+@media(max-width:480px){
+  .h-ctas{flex-direction:column;align-items:center;}
+  .btn-f,.btn-g{width:250px;justify-content:center;}
+  .cc{padding:1.75rem;}
+  .minfo{padding:1.25rem;}
+  .mstats{gap:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- OVERLAYS -->
+<canvas id="fc"></canvas>
+<div id="grid"></div>
+<div id="vig"></div>
+<div id="scan"></div>
+
+<!-- ══════ NAV ══════ -->
+<nav id="nav">
+  <a href="#hero" class="nb">SECRET QUANT</a>
+  <ul class="nl">
+    <li><a href="#manifesto">About</a></li>
+    <li><a href="#consult">Consult</a></li>
+    <li><a href="#course">Course</a></li>
+    <li><a href="#merch">Merch</a></li>
+  </ul>
+  <a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer" class="ncta">
+    Book Now &nbsp;→
+  </a>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <p class="h-eye">Quantitative Intelligence &nbsp;·&nbsp; Crypto Markets &nbsp;·&nbsp; Anonymous</p>
+
+  <h1 class="h-title">
+    <span class="ft">SECRET</span>
+    <span class="gt">QUANT</span>
+  </h1>
+
+  <div class="h-rule"></div>
+
+  <p class="h-sub">
+    <span id="ht"></span><span id="hc"></span>
+  </p>
+
+  <div class="h-ctas">
+    <a href="#consult" class="btn-f">Book Consultation &nbsp;→</a>
+    <a href="#manifesto" class="btn-g">Who Is This &nbsp;↓</a>
+  </div>
+
+  <div class="sh">Scroll</div>
+</section>
+
+<div class="fdiv"></div>
+
+<!-- ══════ MANIFESTO ══════ -->
+<section id="manifesto">
+  <div class="inner">
+    <div class="mg">
+
+      <div class="rev">
+        <p class="mpull">
+          The market<br/>is not<br/><em>random.</em><br/>It is<br/>written.
+        </p>
+        <div class="mstats">
+          <div class="mstat">
+            <span class="msn">4D</span>
+            <span class="msl">Analysis</span>
+          </div>
+          <div class="mstat">
+            <span class="msn">∞</span>
+            <span class="msl">Edge</span>
+          </div>
+          <div class="mstat">
+            <span class="msn">0</span>
+            <span class="msl">Crowd</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev d2">
+        <p class="sl">01 &nbsp;— Identity</p>
+        <div class="mbody">
+          <p>
+            I am a quantitative crypto trader operating outside the system
+            that built the market. Anonymous by design. Independent by discipline.
+            I do not follow the crowd. I study the people who move it.
+          </p>
+          <p>
+            My edge rests on three pillars: quantitative analysis,
+            numerological pattern recognition, and remote viewing —
+            tools hidden in plain sight at the highest levels of power.
+            I track secret societies. I study the elites.
+            I monitor the hands that move capital before the market reflects it.
+          </p>
+          <p>
+            Most traders lose because they play a game built to extract from them.
+            I learned the rules of the real game — the game behind the game.
+            And I teach it, not to manufacture traders,
+            but to free people from a system engineered to keep them dependent.
+          </p>
+          <p>
+            Whether you want to trade profitably, grow what you have,
+            or simply protect what you have already built —
+            this is where that journey begins.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="fdiv"></div>
+
+<!-- ══════ CONSULTATION ══════ -->
+<section id="consult">
+  <div class="inner">
+    <p class="sl rev">02 &nbsp;— One on One</p>
+    <h2 class="st rev">PRIVATE<br/>CONSULTATION</h2>
+    <p class="sb rev d1">
+      Not coaching. Not a course. A full-spectrum, real-time diagnosis of your
+      financial life — delivered by someone operating inside the real architecture
+      of markets and far outside the crowd that loses in them.
+    </p>
+
+    <div class="cc rev d2">
+
+      <div class="sbadge">
+        <div class="sdot"></div>
+        <span class="stxt">Founding Rate &nbsp;·&nbsp; First 10 Clients Only</span>
+      </div>
+
+      <div class="pdisplay">
+        <span class="pnum">$100</span>
+        <div class="pdet">
+          Per session &nbsp;·&nbsp; 60 minutes<br/>
+          Crypto only &nbsp;·&nbsp; BTC · ETH · SOL · USDT · USDC
+        </div>
+      </div>
+
+      <p class="cbody">
+        This session is built entirely around you. Before we speak, I already know where to look.
+        I analyse your numerology, your psychology, your specific environment,
+        your country, your current circle — the full picture of why your financial situation
+        is what it is. From zero to building, from building to protecting, from protecting
+        to growing. If you don't know your problem, I will identify it. If you know your problem,
+        we will dismantle it. You leave with a clear diagnosis and a concrete, personalised path forward.
+        I stay with you on the journey.
+      </p>
+
+      <div class="fg">
+        <div class="fi">Full numerological and psychological profile</div>
+        <div class="fi">Environment, country and circle analysis</div>
+        <div class="fi">Root-cause problem identification</div>
+        <div class="fi">Custom solution assignment</div>
+        <div class="fi">4D strategic roadmap built around you</div>
+        <div class="fi">Post-session guidance and availability</div>
+      </div>
+
+      <div class="nb2">
+        <strong>Non-Refundable —</strong>
+        All consultation fees are final and non-refundable under any circumstances.
+        Rescheduling requires a minimum of 24 hours' notice.
+        No-shows forfeit their slot without exception.
+        Payment confirms your booking and constitutes full acceptance of these terms.
+        No return guarantees are made, expressed, or implied.
+      </div>
+
+      <div class="nb2">
+        <strong>How to Book —</strong>
+        Send a direct message to
+        <a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer">@secretquant on X</a>
+        with the message <em>"I want a consultation"</em>.
+        I will confirm your slot and send the crypto payment address directly.
+        Your session is locked in only after payment is confirmed on-chain.
+      </div>
+
+      <div class="bw">
+        <a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer" class="btn-f">
+          DM on X to Book &nbsp;→
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="fdiv"></div>
+
+<!-- ══════ COURSE ══════ -->
+<section id="course">
+  <div class="inner">
+    <p class="sl rev">03 &nbsp;— The Course</p>
+    <h2 class="st rev">SECRET<br/>CODES</h2>
+
+    <div class="cs-badge rev d1">
+      <div class="wdot"></div>
+      <span class="wtxt">In Development &nbsp;·&nbsp; Notify Me When Live</span>
+    </div>
+
+    <div class="clayout">
+
+      <div class="rev">
+        <div class="pdisplay" style="margin-top:0;">
+          <span class="pnum" style="font-size:clamp(68px,11vw,108px);">$350</span>
+        </div>
+        <div class="pdet" style="margin-bottom:1.6rem;">
+          One-time payment &nbsp;·&nbsp; Lifetime access<br/>
+          Crypto only &nbsp;·&nbsp; Non-refundable
+        </div>
+
+        <p class="sb" style="max-width:100%;">
+          Secret Codes is the distillation of years operating at the intersection
+          of quantitative analysis, numerological intelligence, and elite market
+          pattern recognition. Four pillars. One complete methodology.
+          Built for those who are done losing — and ready to understand how
+          markets actually move and who moves them.
+        </p>
+
+        <div class="nb2" style="margin-top:1.75rem;">
+          <strong>Non-Refundable —</strong>
+          Secret Codes is a digital product.
+          All sales are final. By purchasing you confirm you have read
+          and fully accepted this policy.
+        </div>
+
+        <div class="bw">
+          <a href="mailto:deltaquant33@protonmail.com?subject=Notify%20Me%20-%20Secret%20Codes%20Course"
+             class="btn-f">
+            Notify Me When Live &nbsp;→
+          </a>
+        </div>
+      </div>
+
+      <div class="rev d2">
+        <p class="sl" style="margin-bottom:1.3rem;">Course Modules</p>
+        <ul class="mlist">
+          <li class="mi">
+            <div>
+              <span class="mt">Why Trade</span>
+              <span class="md">
+                The real psychology behind every profitable trader's edge —
+                and why most people enter the market already defeated.
+                Mindset architecture. Purpose-driven decision making.
+                The foundation everything else is built on.
+              </span>
+            </div>
+          </li>
+          <li class="mi">
+            <div>
+              <span class="mt">How to Trade</span>
+              <span class="md">
+                The complete quantitative framework. Strategy construction,
+                signal identification, numerological pattern recognition
+                inside price action, and execution discipline in live markets.
+              </span>
+            </div>
+          </li>
+          <li class="mi">
+            <div>
+              <span class="mt">When to Stop Trading</span>
+              <span class="md">
+                The most underrated skill in all of trading.
+                How to recognise when the market is not yours to take —
+                and how to preserve capital while others
+                are giving theirs away.
+              </span>
+            </div>
+          </li>
+          <li class="mi">
+            <div>
+              <span class="mt">How to Never Lose</span>
+              <span class="md">
+                Risk architecture beyond stop-losses.
+                Portfolio protection, psychological resilience,
+                and the structural principles the elite use
+                to ensure capital survives every cycle, every crash,
+                every manipulation.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="fdiv"></div>
+
+<!-- ══════ MERCH ══════ -->
+<section id="merch">
+  <div class="inner">
+    <p class="sl rev">04 &nbsp;— The Collection</p>
+    <h2 class="st rev">SECRET QUANT<br/>MERCH</h2>
+    <p class="sb rev d1">
+      Fire and coal. Ancient symbols encoded into modern cuts.
+      Encrypted mathematics running beneath the surface.
+      The Secret Quant aesthetic in wearable form.
+      Pre-order now — production begins when volume is confirmed.
+    </p>
+
+    <div class="mcards rev d2">
+
+      <!-- HOODIE -->
+      <div class="mcard">
+        <div class="mvis">
+          <span class="mlabel">AI Prototype</span>
+          <svg viewBox="0 0 165 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M52 42 Q41 39 29 57 L20 95 L42 98 L42 138 L123 138 L123 98 L145 95 L136 57 Q124 39 113 42 Q102 31 82 29 Q62 31 52 42Z"
+              fill="none" stroke="rgba(255,115,0,.3)" stroke-width="1.2"/>
+            <path d="M52 42 Q62 31 82 29 Q102 31 113 42 Q102 37 82 36 Q62 37 52 42Z"
+              fill="none" stroke="rgba(255,115,0,.3)" stroke-width="1.2"/>
+            <polygon points="82,64 96,86 68,86"
+              fill="none" stroke="rgba(255,115,0,.52)" stroke-width="1"/>
+            <circle cx="82" cy="79" r="3.5" fill="rgba(255,61,0,.58)"/>
+            <circle cx="82" cy="79" r="7" fill="none" stroke="rgba(255,115,0,.28)" stroke-width=".8"/>
+            <circle cx="82" cy="79" r="12" fill="none" stroke="rgba(255,115,0,.14)" stroke-width=".7"/>
+            <line x1="62" y1="92" x2="102" y2="92" stroke="rgba(255,115,0,.18)" stroke-width=".7"/>
+            <line x1="67" y1="96" x2="97" y2="96" stroke="rgba(255,115,0,.1)" stroke-width=".6"/>
+            <text x="55" y="110" font-family="monospace" font-size="8" fill="rgba(255,170,0,.3)">φ=1.618</text>
+            <text x="82" y="120" font-family="monospace" font-size="7" fill="rgba(255,115,0,.22)">ΔΨ≠0</text>
+          </svg>
+        </div>
+        <div class="minfo">
+          <div class="mname">THE HOODIE</div>
+          <p class="mdesc">
+            Coal base. Fire palette. Ancient symbol print with encoded
+            mathematical constants. Heavyweight cotton. Oversized cut.
+            Production begins once pre-orders are confirmed.
+          </p>
+          <div class="macts">
+            <a href="mailto:deltaquant33@protonmail.com?subject=Merch%20Pre-Order%20-%20Hoodie"
+               class="btn-sf">Pre-Order &nbsp;→</a>
+            <a href="mailto:deltaquant33@protonmail.com?subject=Notify%20Me%20-%20Merch%20Drop"
+               class="btn-sg">Notify Me</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEE -->
+      <div class="mcard">
+        <div class="mvis">
+          <span class="mlabel">AI Prototype</span>
+          <svg viewBox="0 0 165 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M57 37 L31 58 L47 68 L47 138 L118 138 L118 68 L134 58 L108 37 Q97 44 82 44 Q67 44 57 37Z"
+              fill="none" stroke="rgba(255,115,0,.3)" stroke-width="1.2"/>
+            <path d="M57 37 Q67 44 82 44 Q97 44 108 37" fill="none" stroke="rgba(255,115,0,.3)" stroke-width="1.2"/>
+            <circle cx="82" cy="88" r="22" fill="none" stroke="rgba(255,115,0,.18)" stroke-width=".8"/>
+            <circle cx="82" cy="88" r="15" fill="none" stroke="rgba(255,115,0,.28)" stroke-width=".8"/>
+            <circle cx="82" cy="88" r="8" fill="none" stroke="rgba(255,115,0,.48)" stroke-width=".9"/>
+            <circle cx="82" cy="88" r="3" fill="rgba(255,61,0,.55)"/>
+            <polygon points="82,67 96,76 96,99 82,108 68,99 68,76"
+              fill="none" stroke="rgba(255,170,0,.18)" stroke-width=".7"/>
+            <text x="60" y="122" font-family="monospace" font-size="8" fill="rgba(255,170,0,.28)">∑∞=∅</text>
+            <text x="86" y="130" font-family="monospace" font-size="7" fill="rgba(255,115,0,.2)">E=hν</text>
+          </svg>
+        </div>
+        <div class="minfo">
+          <div class="mname">THE TEE</div>
+          <p class="mdesc">
+            Coal black. Sacred geometry and numeric constants on the front.
+            Fire-gradient detail on the back. Premium ring-spun cotton.
+            Regular and oversized fit available.
+          </p>
+          <div class="macts">
+            <a href="mailto:deltaquant33@protonmail.com?subject=Merch%20Pre-Order%20-%20T-Shirt"
+               class="btn-sf">Pre-Order &nbsp;→</a>
+            <a href="mailto:deltaquant33@protonmail.com?subject=Notify%20Me%20-%20Merch%20Drop"
+               class="btn-sg">Notify Me</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nb2 rev" style="margin-top:2rem;">
+      <strong>Pre-Order Policy —</strong>
+      Pre-orders are fulfilled in crypto (BTC · ETH · SOL · USDT · USDC).
+      Production is triggered once minimum pre-order volume is confirmed.
+      Pre-orders are non-refundable once payment is sent.
+      To begin a pre-order, DM
+      <a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer">@secretquant on X</a>
+      and you will be sent the payment address and size/fit options.
+    </div>
+  </div>
+</section>
+
+<div class="fdiv"></div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="fi2">
+
+    <div class="fb rev">
+      <a href="#hero" class="nb">SECRET QUANT</a>
+      <p class="ftag">
+        Anonymous. Independent. Operating outside the system
+        that built the market. Available to those ready to
+        understand the real game — and play it.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer"
+           style="font-size:10px;letter-spacing:.2em;color:var(--mid);text-decoration:none;">
+          @secretquant on X / Twitter &nbsp;↗
+        </a>
+      </div>
+    </div>
+
+    <div class="flinks rev d2">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#manifesto">About</a></li>
+        <li><a href="#consult">Consultation — $100</a></li>
+        <li><a href="#course">Course — Secret Codes — $350</a></li>
+        <li><a href="#merch">Merch Collection</a></li>
+        <li><a href="https://x.com/secretquant" target="_blank" rel="noopener noreferrer">X / Twitter &nbsp;↗</a></li>
+        <li><a href="mailto:deltaquant33@protonmail.com">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="fbot rev">
+    <div class="disc">
+      <strong>Disclaimer —</strong>
+      All content, consultations, courses, and materials provided by Secret Quant are strictly
+      for educational and informational purposes only. Nothing on this website constitutes
+      financial, investment, legal, or tax advice of any kind. Trading and investing in
+      cryptocurrencies carries substantial risk of loss and is not suitable for all individuals.
+      Past performance, analysis, predictions, or prior results are not indicative of future outcomes.
+      No return guarantees are made, expressed, or implied under any circumstances.
+      All transactions — consultations, course purchases, and merchandise pre-orders — are
+      strictly final and non-refundable. Secret Quant operates as an independent individual
+      and is not a licensed financial advisor, registered broker, or investment professional
+      in any jurisdiction. By accessing this website or engaging with any product or service
+      offered herein, you confirm that you are acting of your own free will, that you are
+      solely responsible for your own financial decisions, and that you have read, understood,
+      and accepted these terms in full.
+    </div>
+    <div class="fcopy">
+      <span>© 2026 Secret Quant &nbsp;·&nbsp; All Rights Reserved</span>
+      <span>No Cookies &nbsp;·&nbsp; No Trackers &nbsp;·&nbsp; Pure HTML</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════ SCRIPTS ══════ -->
+<script>
+/* ─── FIRE PARTICLE SYSTEM — HEAVY ─── */
+(function(){
+  const cv=document.getElementById('fc'),ctx=cv.getContext('2d');
+  let W,H;
+  function rs(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+  rs();window.addEventListener('resize',rs);
+
+  const C=[[255,38,0],[255,65,0],[255,95,0],[255,118,0],[255,142,0],[255,168,0],[255,198,22]];
+
+  function mk(init){
+    return{
+      x:Math.random()*W,
+      y:init?Math.random()*H:H+14,
+      vx:(Math.random()-.5)*.85,
+      vy:-(Math.random()*1.7+.38),
+      life:0,max:Math.random()*230+75,
+      r:Math.random()*3.4+.35,
+      ci:Math.floor(Math.random()*C.length),
+      w:Math.random()*Math.PI*2
+    };
+  }
+
+  const N=Math.min(480,Math.floor(window.innerWidth*.3));
+  const ps=Array.from({length:N},()=>mk(true));
+
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<ps.length;i++){
+      const p=ps[i];
+      p.x+=p.vx+Math.sin(p.life*.034+p.w)*.42;
+      p.y+=p.vy;p.life++;
+      if(p.life>p.max){Object.assign(ps[i],mk(false));continue;}
+      const t=p.life/p.max;
+      const a=t<.14?t/.14:1-((t-.14)/.86);
+      const ci=Math.min(p.ci+Math.floor(t*3),C.length-1);
+      const[r,g,b]=C[ci];
+      ctx.save();
+      ctx.globalAlpha=a*.66;
+      ctx.fillStyle=`rgb(${r},${g},${b})`;
+      ctx.shadowBlur=p.r*6;
+      ctx.shadowColor=`rgba(${r},${g},${b},.52)`;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ─── HERO TYPEWRITER ─── */
+(function(){
+  const el=document.getElementById('ht');
+  const lines=[
+    'The market is not random. It is written.',
+    'I decoded the system. Now I teach it.',
+    'Anonymous. Independent. Untouchable.'
+  ];
+  let li=0,ci=0,del=false,pause=0;
+  function tick(){
+    if(pause>0){pause--;setTimeout(tick,80);return;}
+    const line=lines[li];
+    if(!del){
+      el.textContent=line.slice(0,ci+1);ci++;
+      if(ci>=line.length){pause=55;del=true;}
+      setTimeout(tick,72);
+    } else {
+      el.textContent=line.slice(0,ci-1);ci--;
+      if(ci<=0){del=false;li=(li+1)%lines.length;pause=16;}
+      setTimeout(tick,36);
+    }
+  }
+  setTimeout(tick,1000);
+})();
+
+/* ─── SCROLL REVEAL ─── */
+(function(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:.07});
+  document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+})();
+</script>
+</body>
+</html>
