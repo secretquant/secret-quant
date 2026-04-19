@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Secret Quant — Crypto Intelligence</title>
 <meta name="description" content="Anonymous quantitative crypto trader. Numerology. Remote viewing. Elite intelligence. 1-on-1 consultation. Secret Codes course. Secret Quant merch."/>
+<!-- ═ GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID ═ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-XXXXXXXXXX');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
@@ -97,9 +105,43 @@ body{
   text-align:center;padding:100px 2rem 6rem;
 }
 .h-eye{
-  font-size:9px;letter-spacing:.36em;text-transform:uppercase;
-  color:rgba(255,115,0,.48);margin-bottom:1.8rem;
-  animation:rise 1.2s ease both;
+  display:flex;gap:3rem;justify-content:center;align-items:center;
+  margin-bottom:1.8rem;animation:rise 1.2s ease both;
+}
+.h-eye-word{
+  font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:700;
+  color:var(--hot);
+  text-shadow:0 0 10px rgba(255,61,0,.9),0 0 22px rgba(255,61,0,.6),0 0 44px rgba(255,61,0,.3);
+  animation:eyeglow 3.5s ease-in-out infinite alternate;
+}
+.h-eye-word:last-child{animation-delay:1.75s;}
+@keyframes eyeglow{
+  0%{text-shadow:0 0 8px rgba(255,61,0,.8),0 0 18px rgba(255,61,0,.5),0 0 36px rgba(255,61,0,.25);}
+  100%{text-shadow:0 0 14px rgba(255,115,0,1),0 0 30px rgba(255,115,0,.7),0 0 60px rgba(255,115,0,.35),0 0 90px rgba(255,61,0,.15);}
+}
+/* THREE PHRASES BELOW TITLE */
+.h-phrases{
+  display:flex;gap:2.5rem;justify-content:center;align-items:center;
+  margin:0;min-height:1.6em;
+  animation:rise 1.3s ease .45s both;
+}
+.h-phrase{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(235,235,235,.52);white-space:nowrap;
+  animation:phraseloop 9s ease-in-out infinite;
+}
+.h-phrase:nth-child(2){animation-delay:3s;}
+.h-phrase:nth-child(3){animation-delay:6s;}
+@keyframes phraseloop{
+  0%{opacity:.18;}
+  16%{opacity:.7;}
+  36%{opacity:.52;}
+  50%{opacity:.18;}
+  100%{opacity:.18;}
+}
+.h-phrase-sep{
+  width:1px;height:14px;
+  background:rgba(255,115,0,.2);flex-shrink:0;
 }
 .h-title{
   font-family:'Bebas Neue',sans-serif;
@@ -149,11 +191,12 @@ body{
 }
 .btn-f{
   display:inline-flex;align-items:center;gap:.6rem;
-  padding:1rem 2.5rem;background:var(--hot);color:#fff;
-  font-family:'Share Tech Mono',monospace;font-size:9px;
-  letter-spacing:.26em;text-transform:uppercase;
+  padding:1.1rem 2.6rem;background:var(--hot);color:#fff;
+  font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
   text-decoration:none;border:none;cursor:pointer;
   position:relative;overflow:hidden;
+  box-shadow:0 0 18px rgba(255,61,0,.28);
   transition:background .2s,transform .15s,box-shadow .2s;
 }
 .btn-f::before{
@@ -162,13 +205,13 @@ body{
   transform:translateX(-100%);transition:transform .42s;
 }
 .btn-f:hover::before{transform:translateX(100%);}
-.btn-f:hover{background:var(--mid);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,61,0,.28);}
+.btn-f:hover{background:var(--mid);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,61,0,.42);}
 .btn-g{
   display:inline-flex;align-items:center;gap:.6rem;
-  padding:1rem 2.5rem;background:transparent;color:var(--mid);
-  font-family:'Share Tech Mono',monospace;font-size:9px;
-  letter-spacing:.26em;text-transform:uppercase;
-  text-decoration:none;border:1px solid rgba(255,115,0,.28);cursor:pointer;
+  padding:1.1rem 2.6rem;background:transparent;color:var(--warm);
+  font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;border:1px solid rgba(255,170,0,.45);cursor:pointer;
   transition:border-color .2s,background .2s,transform .15s;
 }
 .btn-g:hover{border-color:var(--mid);background:rgba(255,115,0,.06);transform:translateY(-2px);}
@@ -508,7 +551,10 @@ footer{
 
 <!-- ══════ HERO ══════ -->
 <section id="hero">
-  <p class="h-eye">Quantitative Intelligence &nbsp;·&nbsp; Crypto Markets &nbsp;·&nbsp; Anonymous</p>
+  <div class="h-eye">
+    <span class="h-eye-word">Knowledge</span>
+    <span class="h-eye-word">Fire</span>
+  </div>
 
   <h1 class="h-title">
     <span class="ft">SECRET</span>
@@ -517,9 +563,13 @@ footer{
 
   <div class="h-rule"></div>
 
-  <p class="h-sub">
-    <span id="ht"></span><span id="hc"></span>
-  </p>
+  <div class="h-phrases">
+    <span class="h-phrase">Trader Since 2017</span>
+    <div class="h-phrase-sep"></div>
+    <span class="h-phrase">Trusted by Creators</span>
+    <div class="h-phrase-sep"></div>
+    <span class="h-phrase">Psycho-Analyst</span>
+  </div>
 
   <div class="h-ctas">
     <a href="#consult" class="btn-f">Book Consultation &nbsp;→</a>
@@ -597,9 +647,10 @@ footer{
     <p class="sl rev">02 &nbsp;— One on One</p>
     <h2 class="st rev">PRIVATE<br/>CONSULTATION</h2>
     <p class="sb rev d1">
-      Not coaching. Not a course. A full-spectrum, real-time diagnosis of your
-      financial life — delivered by someone operating inside the real architecture
-      of markets and far outside the crowd that loses in them.
+      A 60-minute private session focused entirely on your situation.
+      I work across trading strategy, risk management, numerology, psychology,
+      and your specific circumstances — your country, your environment, your finances —
+      to give you a clear picture of where you are and what to do next.
     </p>
 
     <div class="cc rev d2">
@@ -973,31 +1024,6 @@ footer{
     requestAnimationFrame(loop);
   }
   loop();
-})();
-
-/* ─── HERO TYPEWRITER ─── */
-(function(){
-  const el=document.getElementById('ht');
-  const lines=[
-    'The market is not random. It is written.',
-    'I decoded the system. Now I teach it.',
-    'Anonymous. Independent. Untouchable.'
-  ];
-  let li=0,ci=0,del=false,pause=0;
-  function tick(){
-    if(pause>0){pause--;setTimeout(tick,80);return;}
-    const line=lines[li];
-    if(!del){
-      el.textContent=line.slice(0,ci+1);ci++;
-      if(ci>=line.length){pause=55;del=true;}
-      setTimeout(tick,72);
-    } else {
-      el.textContent=line.slice(0,ci-1);ci--;
-      if(ci<=0){del=false;li=(li+1)%lines.length;pause=16;}
-      setTimeout(tick,36);
-    }
-  }
-  setTimeout(tick,1000);
 })();
 
 /* ─── SCROLL REVEAL ─── */
